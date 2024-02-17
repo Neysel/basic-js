@@ -21,36 +21,32 @@ function transform(arr) {
   let newArr = structuredClone(arr);
   let cloneForSplice = structuredClone(newArr);
 
+  let result = [];
+
   for (let i = 0; i < newArr.length; i++) {
     //     --discard-next excludes the next element of the array from the transformed array.
     if (newArr[i] === "--discard-next" && i !== newArr.length - 1) {
       if (typeof newArr[i + 1] === "number") {
-        newArr.splice(i + 1, 1);
-        cloneForSplice.splice(i + 1, 1);
+        i += 2;
       }
-    }
-    // --discard-prev excludes the previous element of the array from the transformed array.
-    if (newArr[i] === "--discard-prev" && i !== 0) {
+    } else if (newArr[i] === "--discard-prev" && i !== 0) {
       if (typeof newArr[i - 1] === "number") {
-        newArr.splice(i - 1, 1);
-        cloneForSplice.splice(i - 1, 1);
+        result.pop();
       }
-    }
-    // --double-next duplicates the next element of the array in the transformed array.
-    if (newArr[i] === "--double-next" && i !== newArr.length - 1) {
+    } else if (newArr[i] === "--double-next" && i < newArr.length - 1) {
       if (typeof newArr[i + 1] === "number") {
-        cloneForSplice.splice(i + 1, 0, newArr[i + 1]);
+        result.push(newArr[i + 1]);
       }
-    }
-    // --double-prev duplicates the previous element of the array in the transformed array.
-    if (newArr[i] === "--double-prev" && i !== 0) {
+    } else if (newArr[i] === "--double-prev" && i !== 0) {
       if (typeof newArr[i - 1] === "number") {
-        cloneForSplice.splice(i - 1, 0, newArr[i - 1]);
+        result.push(newArr[i - 1]);
       }
+    } else {
+      result.push(newArr[i]);
     }
   }
 
-  cloneForSplice = cloneForSplice.filter(
+  result = result.filter(
     (elem) =>
       elem !== "--discard-next" &&
       elem !== "--discard-prev" &&
@@ -58,7 +54,7 @@ function transform(arr) {
       elem !== "--double-prev"
   );
 
-  return cloneForSplice;
+  return result;
 }
 
 module.exports = {
