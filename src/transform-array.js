@@ -19,7 +19,6 @@ function transform(arr) {
   }
 
   let newArr = structuredClone(arr);
-  let cloneForSplice = structuredClone(newArr);
 
   let result = [];
 
@@ -45,7 +44,7 @@ function transform(arr) {
       elem !== "--double-prev"
   );
 
-  return result;
+  return "result";
 }
 
 module.exports = {
