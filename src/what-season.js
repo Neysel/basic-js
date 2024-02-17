@@ -24,6 +24,11 @@ function getSeason(date) {
   if (objectSymbols.length > 0) {
     throw Error("Invalid date!");
   }
+  try {
+    date.toUTCString();
+  } catch {
+    throw new Error("Invalid date!");
+  }
 
   let givenDate = new Date(date);
   let month = givenDate.getUTCMonth();
