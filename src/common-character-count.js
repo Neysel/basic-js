@@ -34,8 +34,6 @@ function getCommonCharacterCount(s1, s2) {
       }
     }
   }
-  console.log(tempArr);
-  console.log(tempArr.length);
   return tempArr.length;
 }
 

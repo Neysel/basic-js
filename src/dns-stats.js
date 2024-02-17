@@ -46,20 +46,12 @@ function getDNSStats(domains) {
     for (let j = 0; j < tempArr.length; j++) {
       let elemLength = tempArr[j].length;
       let newTempElem;
-      // if (i === 2 && tempArr[j][elemLength - 1 - i] !== undefined) {
-      //   return tempArr[j][elemLength - 1 - i];
-      // }
+
       if (tempArr[j][elemLength - 1 - i] !== undefined) {
         newTempElem = tempArr[j][elemLength - 1 - i];
         tempElem = newTempElem;
         tempArrElem.push(newTempElem);
       }
-      // if (tempElem === newTempElem) {
-      //   tempArrElem.push(newTempElem);
-      // } else {
-      //   // finalObj[`.${tempArrElem[0]}`] = tempArrElem.length;
-      //   // tempArrElem = []
-      // }
     }
     keys.push(tempArrElem[0]);
     finalObj[`.${keys.join(".")}`] = tempArrElem.length;

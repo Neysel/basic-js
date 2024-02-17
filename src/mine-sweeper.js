@@ -84,15 +84,6 @@ function minesweeper(matrix) {
         }
       }
 
-      // if (i === 0 && j === 1) {
-      //   return matrix[i][j - 1];
-      //   if (j > 0) {
-      //     if (matrix[i][j - 1] === true) {
-      //       currentMinesCounter += 1;
-      //     }
-      //   }
-      // }
-
       numberMatrix[i][j] = currentMinesCounter;
     }
   }

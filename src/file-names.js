@@ -21,7 +21,6 @@ function renameFiles(names) {
   }
 
   let tempArr;
-  let FileSystem_counter = 0;
   let obj = {};
 
   for (let i = 0; i < names.length; i++) {
@@ -29,9 +28,6 @@ function renameFiles(names) {
     if (i === names.length - 1) {
       tempArr = names;
     }
-    // if (i == 3) {
-    //   return obj[names[i]];
-    // }
     if (tempArr.includes(names[i])) {
       if (obj[names[i]] === undefined) {
         obj[names[i]] = 0;
@@ -41,7 +37,6 @@ function renameFiles(names) {
       if (obj[names[i]] >= 1) {
         names[i] = `${names[i]}(${obj[names[i]]})`;
         obj[`${names[i]}`] = 0;
-        // return obj;
       }
     }
   }

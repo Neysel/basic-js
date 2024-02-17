@@ -30,7 +30,6 @@ function calculateHanoi(disksNumber, turnsSpeed) {
   // Hanoi(n, from, to, via);
 
   let secondsToSolve = countSteps / (turnsSpeed / 60 / 60);
-
   return { turns: countSteps, seconds: Math.floor(secondsToSolve) };
 }
 
