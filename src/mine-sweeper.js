@@ -1,4 +1,4 @@
-const { NotImplementedError } = require('../extensions/index.js');
+const { NotImplementedError } = require("../extensions/index.js");
 
 /**
  * In the popular Minesweeper game you have a board with some mines and those cells
@@ -23,11 +23,83 @@ const { NotImplementedError } = require('../extensions/index.js');
  *  [1, 1, 1]
  * ]
  */
-function minesweeper(/* matrix */) {
-  throw new NotImplementedError('Not implemented');
-  // remove line with error and write your code here
+function minesweeper(matrix) {
+  let numberMatrix = structuredClone(matrix);
+
+  let currentMinesCounter;
+  for (let i = 0; i < matrix.length; i++) {
+    for (let j = 0; j < matrix[i].length; j++) {
+      currentMinesCounter = 0;
+
+      // check top left
+      if (i > 0 && j > 0) {
+        if (matrix[i - 1][j - 1] === true) {
+          currentMinesCounter += 1;
+        }
+      }
+
+      // check top
+      if (i > 0) {
+        if (matrix[i - 1][j] === true) {
+          currentMinesCounter += 1;
+        }
+      }
+      // check top right
+      if (i > 0 && j < matrix[i].length - 1) {
+        if (matrix[i - 1][j + 1] === true) {
+          currentMinesCounter += 1;
+        }
+      }
+
+      // check left
+      if (j > 0) {
+        if (matrix[i][j - 1] === true) {
+          currentMinesCounter += 1;
+        }
+      }
+
+      // check right
+      if (j < matrix[i].length - 1) {
+        if (matrix[i][j + 1] === true) {
+          currentMinesCounter += 1;
+        }
+      }
+
+      // check bottom left
+      if (i < matrix.length - 1 && j > 0) {
+        if (matrix[i + 1][j - 1] === true) {
+          currentMinesCounter += 1;
+        }
+      }
+      // check bottom
+      if (i < matrix.length - 1) {
+        if (matrix[i + 1][j] === true) {
+          currentMinesCounter += 1;
+        }
+      }
+      // check bottom right
+      if (i < matrix.length - 1 && j < matrix[i].length - 1) {
+        if (matrix[i + 1][j + 1] === true) {
+          currentMinesCounter += 1;
+        }
+      }
+
+      // if (i === 0 && j === 1) {
+      //   return matrix[i][j - 1];
+      //   if (j > 0) {
+      //     if (matrix[i][j - 1] === true) {
+      //       currentMinesCounter += 1;
+      //     }
+      //   }
+      // }
+
+      numberMatrix[i][j] = currentMinesCounter;
+    }
+  }
+
+  return numberMatrix;
 }
 
 module.exports = {
-  minesweeper
+  minesweeper,
 };
