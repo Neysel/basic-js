@@ -18,7 +18,7 @@ function transform(arr) {
     throw Error("'arr' parameter must be an instance of the Array!");
   }
 
-  let newArr = structuredClone(arr);
+  let newArr = arr;
 
   let result = [];
 
@@ -44,7 +44,7 @@ function transform(arr) {
       elem !== "--double-prev"
   );
 
-  return "result";
+  return result;
 }
 
 module.exports = {
