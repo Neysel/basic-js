@@ -20,7 +20,7 @@ function transform(arr) {
 
   let newArr = arr;
 
-  let result = [];
+  const result = [];
 
   for (let i = 0; i < newArr.length; i++) {
     if (newArr[i] === "--discard-next" && i !== newArr.length - 1) {
