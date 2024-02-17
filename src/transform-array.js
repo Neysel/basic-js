@@ -26,21 +26,21 @@ function transform(arr) {
   for (let i = 0; i < newArr.length; i++) {
     //     --discard-next excludes the next element of the array from the transformed array.
     if (newArr[i] === "--discard-next" && i !== newArr.length - 1) {
-      if (typeof newArr[i + 1] === "number") {
-        i += 2;
-      }
+      // if (typeof newArr[i + 1] === "number") {
+      i += 2;
+      // }
     } else if (newArr[i] === "--discard-prev" && i !== 0) {
-      if (typeof newArr[i - 1] === "number") {
-        result.pop();
-      }
+      // if (typeof newArr[i - 1] === "number") {
+      result.pop();
+      // }
     } else if (newArr[i] === "--double-next" && i < newArr.length - 1) {
-      if (typeof newArr[i + 1] === "number") {
-        result.push(newArr[i + 1]);
-      }
+      // if (typeof newArr[i + 1] === "number") {
+      result.push(newArr[i + 1]);
+      // }
     } else if (newArr[i] === "--double-prev" && i !== 0) {
-      if (typeof newArr[i - 1] === "number") {
-        result.push(newArr[i - 1]);
-      }
+      // if (typeof newArr[i - 1] === "number") {
+      result.push(newArr[i - 1]);
+      // }
     } else {
       result.push(newArr[i]);
     }
