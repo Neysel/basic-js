@@ -26,7 +26,7 @@ function getSeason(date) {
   }
 
   let givenDate = new Date(date);
-  let month = givenDate.getMonth();
+  let month = givenDate.getUTCMonth();
 
   if (month === 11 || month === 0 || month === 1) {
     return "winter";

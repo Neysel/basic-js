@@ -31,53 +31,45 @@ function minesweeper(matrix) {
     for (let j = 0; j < matrix[i].length; j++) {
       currentMinesCounter = 0;
 
-      // check top left
       if (i > 0 && j > 0) {
         if (matrix[i - 1][j - 1] === true) {
           currentMinesCounter += 1;
         }
       }
 
-      // check top
       if (i > 0) {
         if (matrix[i - 1][j] === true) {
           currentMinesCounter += 1;
         }
       }
-      // check top right
       if (i > 0 && j < matrix[i].length - 1) {
         if (matrix[i - 1][j + 1] === true) {
           currentMinesCounter += 1;
         }
       }
 
-      // check left
       if (j > 0) {
         if (matrix[i][j - 1] === true) {
           currentMinesCounter += 1;
         }
       }
 
-      // check right
       if (j < matrix[i].length - 1) {
         if (matrix[i][j + 1] === true) {
           currentMinesCounter += 1;
         }
       }
 
-      // check bottom left
       if (i < matrix.length - 1 && j > 0) {
         if (matrix[i + 1][j - 1] === true) {
           currentMinesCounter += 1;
         }
       }
-      // check bottom
       if (i < matrix.length - 1) {
         if (matrix[i + 1][j] === true) {
           currentMinesCounter += 1;
         }
       }
-      // check bottom right
       if (i < matrix.length - 1 && j < matrix[i].length - 1) {
         if (matrix[i + 1][j + 1] === true) {
           currentMinesCounter += 1;
